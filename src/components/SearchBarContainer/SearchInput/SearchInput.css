@@ -1,0 +1,15 @@
+.SearchInput {
+  position: relative;
+  margin: 15px auto;
+}
+
+input {
+  font-size: 18px;
+  border: 0; 
+  color: #333; 
+  box-sizing: border-box; 
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ccc;
+  padding: 7px 0; 
+  outline: none;
+}

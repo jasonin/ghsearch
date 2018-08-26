@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import SearchBar from '../SearchBar/SearchBar'
+import SearchBarContainer from '../SearchBarContainer/SearchBarContainer'
 
 import { getUserProfile, getUserFollowers, getUserFollowing } from '../../actions'
 
@@ -16,7 +16,7 @@ class UserProfileContainer extends Component {
   render() {
     return (
       <div className="UserProfileContainer">
-        <SearchBar />
+        <SearchBarContainer />
         <h1>User Profile</h1>
       </div>
     )

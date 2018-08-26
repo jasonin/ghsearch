@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import SearchBar from '../SearchBar/SearchBar'
 
 import { getUsers } from '../../actions'
+import './SearchResultsContainer.css'
+
+import SearchBarContainer from '../SearchBarContainer/SearchBarContainer'
+import UserCard from './UserCard/UserCard'
 
 class SearchResultsContainer extends Component {
 
@@ -12,17 +15,16 @@ class SearchResultsContainer extends Component {
   }
 
   render() {
-    const users = this.props.search.users.map ( (user) => {
+    const users = this.props.search.users.map ((user) => {
       return (
-        <h3 key={user.id}>{ user.login }</h3>
+        <UserCard key={user.login} data={user}/>
       )
     })
 
     return (
       <div className="SearchResultsContainer"> 
-        <SearchBar />
-        <h1>Search Results</h1>
-        <div>{ users } </div>
+        <SearchBarContainer />
+        <div> {users} </div>
       </div>
     )
   }

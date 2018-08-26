@@ -8,7 +8,7 @@ import {
 import { fetchUsers, fetchUserProfile, fetchUserFollowers, fetchUserFollowing } from '../services/fetch'
 
 
-export const getUsers = (query, page=1, perPage=10) => (dispatch) => {
+export const getUsers = (query, page=1, perPage=12) => (dispatch) => {
   dispatch({
     type: USERS_SEARCH_PENDING
   })

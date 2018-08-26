@@ -1,0 +1,23 @@
+.UserCard {
+  height: 100px;
+  width: 100%;
+  padding: 15px 0;
+  border-bottom: 1px #ccc solid;
+}
+
+img {
+ height: 80px;
+ width: 80px;
+ margin: 10px 20px 10px 10px;
+}
+
+a {
+  display: inline-flex;
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  border-right: 1px #24292e solid;
+}

@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font: 15px "Lato", Arial, sans-serif; 
+}
+
+.SearchResultsContainer {
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .SearchResultsContainer {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .SearchResultsContainer {
+    width: 632px;
+    margin: auto;
+  }
+}

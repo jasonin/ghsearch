@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import _ from 'lodash'
-
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import { updateSearchQuery, getUsers } from '../../actions'
 
-class SearchBar extends Component {  
+import './SearchBarContainer.css'
+import SearchInput from './SearchInput/SearchInput'
+import Loader from '../common/Loader/Loader'
+
+class SearchBarContainer extends Component {  
 
   shouldComponentUpdate(nextProps) {    
     if (nextProps.search.query !== this.props.search.query) {
@@ -24,8 +27,11 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="SearchBar">
-        <input autoFocus onChange={ (e) => this.props.updateSearchQuery(e.target.value) } ></input>
+      <div className="SearchBarContainer">
+        <div className="SearchBar">
+          <SearchInput autoFocus="true" placeholder="Search" onChange={this.props.updateSearchQuery}/>
+          <Loader display={this.props.search.fetching}/>
+        </div>
       </div>
     )
   }
@@ -34,4 +40,4 @@ class SearchBar extends Component {
 const mapStateToProps = state => ({
   search: state.search
 })
-export default withRouter(connect(mapStateToProps, { updateSearchQuery, getUsers })(SearchBar))
+export default withRouter(connect(mapStateToProps, { updateSearchQuery, getUsers })(SearchBarContainer))
