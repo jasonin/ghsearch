@@ -4,7 +4,7 @@ import {
 } from '../actions/types'
 
 const initialState = {
-  user: {},
+  profile: {},
   followers: [],
   following: [],
   fetching: false
@@ -22,7 +22,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         fetching: false,
-        user: action.payload
+        profile: action.payload
       }
 
     case PROFILE_FETCH_REJECTED:

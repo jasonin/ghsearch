@@ -1,9 +1,10 @@
 import {
-  USERS_SEARCH_PENDING, USERS_SEARCH_FULFILLED, USERS_SEARCH_REJECTED
+  USERS_SEARCH_PENDING, USERS_SEARCH_FULFILLED, USERS_SEARCH_REJECTED,
+  SEARCH_QUERY_UPDATE
 } from '../actions/types'
 
 const initialState = {
-  searchString: '',
+  query: '',
   fetching: false,
   users: [],
   currPage: 1,
@@ -31,6 +32,12 @@ export default function (state = initialState, action) {
         ...state,
         fetching: false,
         hasNextPage: false
+      }
+
+    case SEARCH_QUERY_UPDATE:
+      return {
+        ...state,
+        query: action.payload
       }
 
     default: 

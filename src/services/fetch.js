@@ -8,7 +8,7 @@ const fetch = (url, params={}) => {
   return (instance.get( url, { params: params }))
 }
 
-export const fetchUserList = (query, page, perPage) => {
+export const fetchUsers = (query, page, perPage) => {
   const params = {
     q: query,
     page: page,

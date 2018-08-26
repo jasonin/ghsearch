@@ -1,18 +1,19 @@
 import {
   USERS_SEARCH_PENDING, USERS_SEARCH_FULFILLED, USERS_SEARCH_REJECTED,
   PROFILE_FETCH_PENDING, PROFILE_FETCH_FULFILLED, PROFILE_FETCH_REJECTED,
-  USER_FOLLOWERS_FETCH, USER_FOLLOWING_FETCH
+  USER_FOLLOWERS_FETCH, USER_FOLLOWING_FETCH,
+  SEARCH_QUERY_UPDATE
 } from '../actions/types'
 
-import { fetchUserList, fetchUserProfile, fetchUserFollowers, fetchUserFollowing } from '../services/fetch'
+import { fetchUsers, fetchUserProfile, fetchUserFollowers, fetchUserFollowing } from '../services/fetch'
 
 
-export const searchUsers = (query, page=1, perPage=10) => (dispatch) => {
+export const getUsers = (query, page=1, perPage=10) => (dispatch) => {
   dispatch({
     type: USERS_SEARCH_PENDING
   })
 
-  fetchUserList(query, page, perPage)
+  fetchUsers(query, page, perPage)
     .then((response => {
       dispatch({
         type: USERS_SEARCH_FULFILLED,
@@ -70,12 +71,18 @@ export const getUserFollowing = (login) => (dispatch) => {
       })
     }))
     .catch((err) => {
-      console.log(err)
       dispatch({
         type: USER_FOLLOWING_FETCH,
         payload: []
       })
     })
+}
+
+export const updateSearchQuery = (query) => (dispatch) => {
+  dispatch({
+    type: SEARCH_QUERY_UPDATE,
+    payload: query
+  })
 }
 
 
