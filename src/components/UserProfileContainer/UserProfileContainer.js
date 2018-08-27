@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import SearchBarContainer from '../SearchBarContainer/SearchBarContainer'
 
-import { getUserProfile, getUserFollowers, getUserFollowing } from '../../actions'
+import { getUserProfile, getUserFollowers, getUserFollowing, getUserRepos } from '../../actions'
+import './UserProfileContainer.css'
+
+import SearchBar from '../SearchBar/SearchBar'
 
 class UserProfileContainer extends Component {
 
@@ -11,13 +13,14 @@ class UserProfileContainer extends Component {
     this.props.getUserProfile(params.login)
     this.props.getUserFollowers(params.login)
     this.props.getUserFollowing(params.login)
+    this.props.getUserRepos(params.login)
   }
 
   render() {
     return (
-      <div className="UserProfileContainer">
-        <SearchBarContainer />
-        <h1>User Profile</h1>
+      <div className="container UserProfileContainer">
+        <SearchBar />
+        <h1>LOL</h1>
       </div>
     )
   }
@@ -26,4 +29,4 @@ class UserProfileContainer extends Component {
 const mapStateToProps = state => ({
   user: state.user
 })
-export default connect(mapStateToProps, { getUserProfile, getUserFollowers, getUserFollowing })(UserProfileContainer)
+export default connect(mapStateToProps, { getUserProfile, getUserFollowers, getUserFollowing, getUserRepos })(UserProfileContainer)

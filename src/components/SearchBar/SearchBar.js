@@ -5,11 +5,11 @@ import { withRouter } from 'react-router-dom'
 
 import { updateSearchQuery, getUsers } from '../../actions'
 
-import './SearchBarContainer.css'
+import './SearchBar.css'
 import SearchInput from './SearchInput/SearchInput'
 import Loader from '../common/Loader/Loader'
 
-class SearchBarContainer extends Component {  
+class SearchBar extends Component {  
 
   shouldComponentUpdate(nextProps) {    
     if (nextProps.search.query !== this.props.search.query) {
@@ -27,8 +27,8 @@ class SearchBarContainer extends Component {
 
   render() {
     return (
-      <div className="SearchBarContainer">
-        <div className="SearchBar">
+      <div className="SearchBar">
+        <div className="SearchBar-container">
           <SearchInput autoFocus="true" placeholder="Search" onChange={this.props.updateSearchQuery}/>
           <Loader display={this.props.search.fetching}/>
         </div>
@@ -40,4 +40,4 @@ class SearchBarContainer extends Component {
 const mapStateToProps = state => ({
   search: state.search
 })
-export default withRouter(connect(mapStateToProps, { updateSearchQuery, getUsers })(SearchBarContainer))
+export default withRouter(connect(mapStateToProps, { updateSearchQuery, getUsers })(SearchBar))

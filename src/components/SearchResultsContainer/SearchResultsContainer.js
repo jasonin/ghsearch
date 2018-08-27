@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { getUsers } from '../../actions'
+import { getUsers, loadMoreUsers, updateSearchQuery } from '../../actions'
 import './SearchResultsContainer.css'
 
-import SearchBarContainer from '../SearchBarContainer/SearchBarContainer'
+import SearchBar from '../SearchBar/SearchBar'
 import UserCard from './UserCard/UserCard'
+import LoadMoreButton from './LoadMoreButton/LoadMoreButton'
 
 class SearchResultsContainer extends Component {
 
   componentWillMount() {
     const { match: { params } } = this.props
     this.props.getUsers(params.query)
+    this.props.updateSearchQuery(params.query)
   }
 
   render() {
@@ -22,9 +24,10 @@ class SearchResultsContainer extends Component {
     })
 
     return (
-      <div className="SearchResultsContainer"> 
-        <SearchBarContainer />
+      <div className="container SearchResultsContainer"> 
+        <SearchBar />
         <div> {users} </div>
+        <LoadMoreButton search={ this.props.search } onClick={ this.props.loadMoreUsers }/>
       </div>
     )
   }
@@ -33,4 +36,4 @@ class SearchResultsContainer extends Component {
 const mapStateToProps = state => ({
   search: state.search
 })
-export default connect(mapStateToProps, { getUsers })(SearchResultsContainer)
+export default connect(mapStateToProps, { getUsers, loadMoreUsers, updateSearchQuery })(SearchResultsContainer)

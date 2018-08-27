@@ -28,3 +28,7 @@ export const fetchUserFollowers = (login) => {
 export const fetchUserFollowing = (login) => {
   return fetch('/users/' + login + '/following')
 }
+
+export const fetchUserRepos = (login) => {
+  return fetch('/users/' + login + '/repos')
+}

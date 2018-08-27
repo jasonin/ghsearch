@@ -5,19 +5,19 @@
   border-bottom: 1px #ccc solid;
 }
 
-img {
+.UserCard img {
  height: 80px;
  width: 80px;
  margin: 10px 20px 10px 10px;
 }
 
-a {
+.UserCard a {
   display: inline-flex;
   width: 100%;
   text-decoration: none;
   color: black;
 }
 
-a:hover {
-  border-right: 1px #24292e solid;
+.UserCard a:hover {
+  border-right: 1px #ccc solid;
 }

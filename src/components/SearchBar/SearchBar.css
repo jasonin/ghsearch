@@ -1,4 +1,4 @@
-.SearchBarContainer {
+.SearchBar {
   display: inline;
   width: 100%;
   top: 0;
@@ -7,7 +7,7 @@
   height: 56px;
 }
 
-.SearchBar {
+.SearchBar-container {
   margin: auto;
   display: inline-flex;
 }

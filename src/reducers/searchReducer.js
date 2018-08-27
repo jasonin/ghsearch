@@ -1,6 +1,8 @@
 import {
   USERS_SEARCH_PENDING, USERS_SEARCH_FULFILLED, USERS_SEARCH_REJECTED,
-  SEARCH_QUERY_UPDATE
+  SEARCH_QUERY_UPDATE, 
+  MORE_USERS_LOAD_FULFILLED, MORE_USERS_LOAD_REJECTED, MORE_USERS_LOAD_PENDING,
+  NEXT_PAGE_CHECK
 } from '../actions/types'
 
 const initialState = {
@@ -24,8 +26,8 @@ export default function (state = initialState, action) {
         ...state,
         fetching: false,
         users: action.payload,
-        hasNextPage: true
-      }
+        currPage: 1
+    }
 
     case USERS_SEARCH_REJECTED:
       return {
@@ -38,6 +40,34 @@ export default function (state = initialState, action) {
       return {
         ...state,
         query: action.payload
+      }
+    
+
+    case MORE_USERS_LOAD_PENDING:
+      return {
+        ...state,
+        fetching: true
+      }
+
+    case MORE_USERS_LOAD_FULFILLED:
+      return {
+        ...state,
+        fetching: false,
+        currPage: state.currPage + 1,
+        users: state.users.concat(action.payload)
+      }
+
+    case MORE_USERS_LOAD_REJECTED:
+      return {
+        ...state,
+        fetching: false,
+        hasNextPage: false
+      }
+    
+    case NEXT_PAGE_CHECK:
+      return {
+        ...state,
+        hasNextPage: action.payload
       }
 
     default: 

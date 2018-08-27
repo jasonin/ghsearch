@@ -1,12 +1,13 @@
 import {
   PROFILE_FETCH_PENDING, PROFILE_FETCH_FULFILLED, PROFILE_FETCH_REJECTED,
-  USER_FOLLOWERS_FETCH, USER_FOLLOWING_FETCH
+  USER_FOLLOWERS_FETCH, USER_FOLLOWING_FETCH, USER_REPOS_FETCH
 } from '../actions/types'
 
 const initialState = {
   profile: {},
   followers: [],
   following: [],
+  repos: [],
   fetching: false
 }
 
@@ -43,6 +44,13 @@ export default function (state = initialState, action) {
         ...state,
         fetching: false,
         following: action.payload
+      }
+
+    case USER_REPOS_FETCH:
+      return {
+        ...state,
+        fetching: false,
+        repos: action.payload
       }
 
     default: 

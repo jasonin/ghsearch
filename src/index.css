@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font: 15px "Lato", Arial, sans-serif; 
+}
+
+.container {
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 632px;
+    margin: auto;
+  }
+}
