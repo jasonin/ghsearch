@@ -1,10 +1,10 @@
 /* https://loading.io/css/ */
 
-.lds-dual-ring {
-  display: inline-block;
+.lds-dual-ring, .empty-lds-dual-ring{
   width: 28px;
   height: 28px;
-  margin: 15px;
+  margin: 15px auto;
+  padding: 0 15px;
 }
 
 .lds-dual-ring:after {
@@ -26,11 +26,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
-
-.empty-lds-dual-ring {
-  display: inline-block;
-  width: 28px;
-  height: 28px;
-  margin: 15px;
 }

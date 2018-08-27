@@ -1,0 +1,22 @@
+.UserInfo {
+  border-bottom: 1px solid #ccc;
+  margin: 15px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.UserInfo a{
+  text-decoration: none;
+  color: blue;
+  font-size: 13px;
+  width: 100%;
+}
+
+.UserInfo-prop {
+  font-size: 17px;
+  padding-bottom: 8px;
+}
+
+.UserInfo-value {
+  word-wrap: break-word;
+}

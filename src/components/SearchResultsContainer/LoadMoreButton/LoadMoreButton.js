@@ -6,9 +6,9 @@ import Loader from '../../common/Loader/Loader';
 class LoadMoreButton extends Component {  
   render() {
 
-    if (this.props.search.fetching) {
+    if (this.props.search.fetchingNextPage) {
       return (
-        <Loader display={this.props.search.fetching} />
+        <Loader display="true" />
       )
     }
 

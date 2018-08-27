@@ -10,7 +10,8 @@ const initialState = {
   fetching: false,
   users: [],
   currPage: 1,
-  hasNextPage: false
+  hasNextPage: false,
+  fetchingNextPage: false
 }
 
 export default function (state = initialState, action) {
@@ -46,13 +47,13 @@ export default function (state = initialState, action) {
     case MORE_USERS_LOAD_PENDING:
       return {
         ...state,
-        fetching: true
+        fetchingNextPage: true
       }
 
     case MORE_USERS_LOAD_FULFILLED:
       return {
         ...state,
-        fetching: false,
+        fetchingNextPage: false,
         currPage: state.currPage + 1,
         users: state.users.concat(action.payload)
       }
@@ -60,7 +61,7 @@ export default function (state = initialState, action) {
     case MORE_USERS_LOAD_REJECTED:
       return {
         ...state,
-        fetching: false,
+        fetchingNextPage: false,
         hasNextPage: false
       }
     
